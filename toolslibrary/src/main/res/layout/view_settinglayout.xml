@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@drawable/selector_item_pressed"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+
+    <ImageView
+        android:id="@+id/left_img"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_centerVertical="true" />
+
+    <TextView
+        android:id="@+id/left_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/left_img"
+        android:text="姓名"
+        android:textColor="@color/text_color_black"
+        android:textSize="@dimen/text_content_size" />
+
+    <ImageView
+        android:id="@+id/into_icon"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/icon_more" />
+
+    <TextView
+        android:id="@+id/right_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:text="v1.2"
+        android:textColor="@color/text_color_black"
+        android:textSize="@dimen/text_content_size" />
+
+    <TextView
+        android:id="@+id/right_txt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="30dp"
+        android:text="姓名"
+        android:textColor="@color/text_color_black"
+        android:textSize="@dimen/text_content_size" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_alignParentBottom="true"
+        android:background="@color/line_color" />
+</RelativeLayout>

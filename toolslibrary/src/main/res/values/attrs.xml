@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--标题栏-->
+    <declare-styleable name="TitleBar">
+        <attr name="titleBarTitle" format="string" />
+        <attr name="titleBarLeftImage" format="reference" />
+        <attr name="titleBarRightImage" format="reference" />
+        <attr name="titleBarBackground" format="reference|color" />
+        <attr name="titleBarTitleColor" format="color" />
+        <attr name="titleBarRightTxt" format="string" />
+    </declare-styleable>
+    <!--上边图标，下边文字-->
+    <declare-styleable name="TopIconLayout">
+        <attr name="bottomText" format="string" />
+        <attr name="topIcon" format="integer" />
+    </declare-styleable>
+    <!--设置界面的布局-->
+    <declare-styleable name="SettingLayout">
+        <attr name="leftTxt" format="string" />
+        <attr name="rightTxt" format="string" />
+        <attr name="rightTxt2" format="string" />
+        <attr name="leftIv" format="reference" />
+        <attr name="rightTxtColor" format="color" />
+        <attr name="rightTxt2Color" format="color" />
+        <attr name="leftTxtColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="CropImageView">
+        <attr name="cropMaskColor" format="color" />
+        <attr name="cropBorderColor" format="color" />
+        <attr name="cropBorderWidth" format="dimension" />
+        <attr name="cropFocusWidth" format="dimension" />
+        <attr name="cropFocusHeight" format="dimension" />
+        <attr name="cropStyle" format="enum">
+            <enum name="rectangle" value="0" />
+            <enum name="circle" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <!--简密输入框-->
+    <declare-styleable name="PayPwdView">
+        <attr name="count" format="integer" />
+        <attr name="border_color" format="color" />
+        <attr name="dot_color" format="color" />
+    </declare-styleable>
+
+    <!--自动换行-->
+    <declare-styleable name="auto_wrap_tabview">
+        <attr name="vertical_dash" format="dimension"></attr>
+        <attr name="horizontal_dash" format="dimension"></attr>
+    </declare-styleable>
+</resources>
