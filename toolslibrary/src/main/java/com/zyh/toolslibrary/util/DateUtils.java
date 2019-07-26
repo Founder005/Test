@@ -1,4 +1,4 @@
-package com.zyh.toolslibrary.utils;
+package com.zyh.toolslibrary.util;
 
 
 import android.text.TextUtils;

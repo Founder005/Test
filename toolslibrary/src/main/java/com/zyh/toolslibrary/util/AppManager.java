@@ -1,10 +1,7 @@
-package com.zyh.toolslibrary.utils;
+package com.zyh.toolslibrary.util;
 
 import android.app.Activity;
-import android.app.ActivityManager;
 import android.content.Context;
-
-import com.gd.terminal.nohttp.CallServer;
 
 import java.util.Stack;
 
@@ -96,11 +93,11 @@ public class AppManager {
      */
     public void AppExit(Context context) {
         try {
-            CallServer.getInstance().cancelAll();
+//            CallServer.getInstance().cancelAll();
             finishAllActivity();
             currentActivity().finish();
-            ActivityManager activityMgr = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-            activityMgr.killBackgroundProcesses(context.getPackageName());
+//            ActivityManager activityMgr = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+//            activityMgr.killBackgroundProcesses(context.getPackageName());
             System.exit(0);
         } catch (Exception e) {
         }

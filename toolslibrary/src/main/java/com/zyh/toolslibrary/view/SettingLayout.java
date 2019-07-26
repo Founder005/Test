@@ -16,7 +16,12 @@ import com.zyh.toolslibrary.R;
 
 /**
  * Created by ZYH on 2018/7/11.
- * 类描述:
+ * 类描述: 设置界面的布局，
+ * leftTv 左侧文字
+ * leftIv 左侧图标
+ * rightTv 右侧文字
+ * rightTv2 右侧文字2
+ * intoIv 右侧箭头（和右侧文字只显示一个）
  */
 
 public class SettingLayout extends RelativeLayout {

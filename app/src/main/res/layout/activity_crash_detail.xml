@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <com.zyh.toolslibrary.view.TitleBar
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_margin="16dp"
+                android:layout_height="wrap_content"
+                android:text="当您看到这个页面的时候\n说明应用出现了不可预测的异常情况\n请把当前页面的截图反馈给信息部\n感谢您的配合!" />
+
+            <TextView
+                android:id="@+id/tv_crash_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+             android:layout_margin="16dp"
+                android:padding="8dp"
+                android:textSize="10dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

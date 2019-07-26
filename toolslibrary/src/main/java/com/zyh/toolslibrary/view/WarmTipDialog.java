@@ -13,7 +13,7 @@ import com.zyh.toolslibrary.R;
 
 /**
  * Created by ZYH on 2018/7/11.
- * 类描述:
+ * 类描述: 温馨提示框
  */
 
 public class WarmTipDialog extends Dialog {

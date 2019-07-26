@@ -1,4 +1,4 @@
-package com.zyh.toolslibrary.utils;
+package com.zyh.toolslibrary.util;
 
 import android.text.TextUtils;
 
@@ -85,21 +85,23 @@ public class StringUtils {
     /**
      * 保留一位小数
      *
-     * @param f
+     * @param o
      * @return
      */
     public static String strFloatOne(Object o) {
         if (o instanceof Float || o instanceof Double) {
-            return String.format(Locale.getDefault(), "%.1f", f);
+            return String.format(Locale.getDefault(), "%.1f", o);
         }
-        if (o instanceof String) {
-            if (!TextUtils.isEmpty(ratio)) {
-                double d = Double.parseDouble(ratio);
+      else  if (o instanceof String) {
+            if (!TextUtils.isEmpty((String)o)) {
+                double d = Double.parseDouble((String)o);
                 String temp = String.format("%.1f", d);
                 return temp;
             } else {
                 return "0.0";
             }
+        }else{
+          return "0.0";
         }
     }
 

@@ -7,7 +7,10 @@ import android.support.annotation.NonNull;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.xuexiang.xui.XUI;
+import com.xuexiang.xui.utils.StatusBarUtils;
+import com.zyh.toolslibrary.nohttp.LoadingDialog;
+import com.zyh.toolslibrary.util.StringUtils;
+
 
 public class MainActivity extends AppCompatActivity {
     private TextView mTextMessage;
@@ -39,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navView = findViewById(R.id.nav_view);
         mTextMessage = findViewById(R.id.message);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        new LoadingDialog(this).show();
 
     }
 

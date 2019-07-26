@@ -12,7 +12,7 @@
     <!--上边图标，下边文字-->
     <declare-styleable name="TopIconLayout">
         <attr name="bottomText" format="string" />
-        <attr name="topIcon" format="integer" />
+        <attr name="topIcon" format="reference" />
     </declare-styleable>
     <!--设置界面的布局-->
     <declare-styleable name="SettingLayout">

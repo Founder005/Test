@@ -12,7 +12,7 @@ import java.util.List;
  * Created by lry on 2018/3/20.
  */
 
-public abstract class CommonAdapter<T> extends RecyclerView.Adapter<ViewHolder> {
+public abstract class CommonRecycleAdapter<T> extends RecyclerView.Adapter<ViewHolder> {
     protected Context mContext;
     protected int mLayoutId;
     protected List<T> mDatas;
@@ -20,7 +20,7 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<ViewHolder> 
     private OnItemClickListener mItemClickListener;
     private onLongItemClickListener mLongItemClickListener;
 
-    public CommonAdapter(Context context, int layoutId, List<T> datas) {
+    public CommonRecycleAdapter(Context context, int layoutId, List<T> datas) {
         mContext = context;
         mInflater = LayoutInflater.from(context);
         mLayoutId = layoutId;

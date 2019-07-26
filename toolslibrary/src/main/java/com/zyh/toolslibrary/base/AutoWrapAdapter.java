@@ -9,6 +9,7 @@ import java.util.List;
  * Created by liyunshuang on 2018/4/16.
  * <p>
  * Email 522940943@qq.com or liyunshuang21@gmail.com
+ * 自动换行布局
  */
 public abstract class AutoWrapAdapter<T> {
     protected List<T> datas;
