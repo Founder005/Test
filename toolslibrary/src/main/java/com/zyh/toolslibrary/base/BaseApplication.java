@@ -2,7 +2,9 @@ package com.zyh.toolslibrary.base;
 
 import android.app.Application;
 
+import com.xuexiang.xui.BuildConfig;
 import com.xuexiang.xui.XUI;
+import com.yanzhenjie.nohttp.Logger;
 import com.yanzhenjie.nohttp.NoHttp;
 
 /**
@@ -15,8 +17,9 @@ public abstract class BaseApplication extends Application{
     public void onCreate() {
         super.onCreate();
         NoHttp.initialize(this); // NoHttp默认初始化。
+        Logger.setDebug(BuildConfig.DEBUG);
         XUI.init(this);
-        XUI.debug(true);
+        XUI.debug(BuildConfig.DEBUG);
     }
 
 }

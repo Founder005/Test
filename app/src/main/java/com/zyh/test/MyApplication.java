@@ -2,6 +2,7 @@ package com.zyh.test;
 
 import android.content.Intent;
 
+import com.zyh.test.view.LoadingAndRetryManager;
 import com.zyh.toolslibrary.base.BaseApplication;
 
 /**
@@ -36,5 +37,8 @@ public class MyApplication extends BaseApplication {
                 startActivity(intent);
             }
         });
+        LoadingAndRetryManager.BASE_RETRY_LAYOUT_ID = R.layout.base_retry;
+        LoadingAndRetryManager.BASE_LOADING_LAYOUT_ID = R.layout.base_loading;
+        LoadingAndRetryManager.BASE_EMPTY_LAYOUT_ID = R.layout.base_empty;
     }
 }

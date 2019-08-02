@@ -3,8 +3,9 @@
 可伸缩折叠的TextView ExpandableTextView
 自动缩小文字 AutoFitLayout(viewGroup) AutoFitTextView
 超级textView superTextView
-底部弹出 bottomSheepDialog
+底部弹出 BottomSheepDialog
 文字标签 labelView
 布局阴影 XUILinearLayout XUIRelativeLayout
 图片轮播 SimpleImageBanner
 tab标题栏，横线宽度可调，横线顶部底部 TabSegment
+LoadingAndRetryManager 多状态布局（非XUI里的），适合成熟项目后期需要添加，！！！！application赋布局值

@@ -1,10 +1,14 @@
 package com.zyh.toolslibrary.base;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
@@ -13,6 +17,7 @@ import android.view.inputmethod.InputMethodManager;
 
 import com.yanzhenjie.nohttp.rest.OnResponseListener;
 import com.yanzhenjie.nohttp.rest.Request;
+import com.zyh.toolslibrary.R;
 import com.zyh.toolslibrary.nohttp.CallServer;
 import com.zyh.toolslibrary.util.AppManager;
 import com.zyh.toolslibrary.util.KeyboardUtil;
@@ -185,4 +190,59 @@ public abstract class BaseActivity extends AppCompatActivity {
         return false;
     }
 
+    /**
+     * 显示提示信息
+     *
+     * @since 2.5.0
+     */
+    protected void showMissingPermissionDialog() {
+        try {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle(getString(R.string.notifyTitle));
+            builder.setMessage(getString(R.string.notifyMsg));
+
+            // 拒绝, 退出应用
+            builder.setNegativeButton(getString(R.string.cancel),
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+
+            builder.setPositiveButton(getString(R.string.setting),
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            try {
+                                startAppSettings();
+                            } catch (Throwable e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    });
+
+            builder.setCancelable(false);
+
+            builder.show();
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 启动应用的设置
+     *
+     * @since 2.5.0
+     */
+    private void startAppSettings() {
+        try {
+            Intent intent = new Intent(
+                    Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+            intent.setData(Uri.parse("package:" + getPackageName()));
+            startActivity(intent);
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+    }
 }
