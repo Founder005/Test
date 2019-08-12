@@ -25,7 +25,6 @@ public class LoadingStatusActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-
         mLoadingAndRetryManager = LoadingAndRetryManager.generate(this, new OnLoadingAndRetryListener() {//创建mLoadingAndRetryManager，也可以new出来
             @Override
             public void setRetryEvent(View retryView) {
@@ -34,7 +33,7 @@ public class LoadingStatusActivity extends BaseActivity {
 
 
         });
-        mLoadingAndRetryManager.mLoadingAndRetryLayout.setRetryView(R.layout.view_retry);//设置自定义的重试界面，也可以修改原作者的布局
+        mLoadingAndRetryManager.mLoadingAndRetryLayout.setRetryView(R.layout.view_retry);//新设置自定义的重试界面，也可以在原有布局上修改，这个方法可针对特定页面
     }
 
     @Override
@@ -79,7 +78,8 @@ public class LoadingStatusActivity extends BaseActivity {
 
     /**
      * 设置点击事件
-     * */
+     * @param retryView
+     */
     public void setRetryEvent(View retryView)
     {
         View view = retryView.findViewById(R.id.id_btn_retry);

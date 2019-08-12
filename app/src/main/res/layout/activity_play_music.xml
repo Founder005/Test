@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/play"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="播放"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/stop"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="暂停"
+        android:textColor="@color/white" />
+
+</LinearLayout>

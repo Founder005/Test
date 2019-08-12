@@ -5,6 +5,8 @@ import android.content.Intent;
 import com.zyh.test.view.LoadingAndRetryManager;
 import com.zyh.toolslibrary.base.BaseApplication;
 
+import cn.bmob.v3.Bmob;
+
 /**
  * Created by Administrator on 2019/7/18.
  * 类描述：
@@ -37,8 +39,12 @@ public class MyApplication extends BaseApplication {
                 startActivity(intent);
             }
         });
+        //设置默认的状态布局
         LoadingAndRetryManager.BASE_RETRY_LAYOUT_ID = R.layout.base_retry;
         LoadingAndRetryManager.BASE_LOADING_LAYOUT_ID = R.layout.base_loading;
         LoadingAndRetryManager.BASE_EMPTY_LAYOUT_ID = R.layout.base_empty;
+
+        //第一：默认初始化
+        Bmob.initialize(this, "75131b97d7fc4f67b1377af0fdb4e4be");
     }
 }

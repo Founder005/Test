@@ -3,11 +3,14 @@ package com.zyh.test;
 import android.animation.AnimatorInflater;
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
-import android.animation.TimeInterpolator;
 import android.animation.ValueAnimator;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Handler;
+import android.support.annotation.RequiresApi;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.view.View;
-import android.view.animation.LinearInterpolator;
+import android.widget.ImageView;
 
 import com.xuexiang.xui.widget.statelayout.MultipleStatusView;
 import com.zyh.toolslibrary.base.BaseActivity;
@@ -53,7 +56,8 @@ public class StatusActivity extends BaseActivity {
 
         animator1.start();
     }
-
+    ImageView smallIv;
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void initData() {
         new Handler().postDelayed(new Runnable() {
@@ -66,9 +70,22 @@ public class StatusActivity extends BaseActivity {
         findView(R.id.data).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(LoadingStatusActivity.class);
+                startActivity(MusicPlayActivity.class);
             }
         });
+
+
+         smallIv  = findView(R.id.iv_small);
+        smallIv.setTransitionName("big");//共享元素动画 5.0以上
+        smallIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActivityOptionsCompat compat  = ActivityOptionsCompat.makeSceneTransitionAnimation(StatusActivity.this,smallIv,"big");
+                Intent intent  = new Intent(StatusActivity.this,BigImageActivity.class);
+                startActivity(intent,compat.toBundle());
+            }
+        });
+
     }
 
 
