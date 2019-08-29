@@ -2,7 +2,13 @@ package com.zyh.test;
 
 import android.content.Intent;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.yanzhenjie.album.Album;
+import com.yanzhenjie.album.AlbumConfig;
+import com.zyh.test.util.MediaLoader;
 import com.zyh.test.view.LoadingAndRetryManager;
+import com.zyh.test.view.WaterTextManager;
 import com.zyh.toolslibrary.base.BaseApplication;
 
 import cn.bmob.v3.Bmob;
@@ -44,7 +50,17 @@ public class MyApplication extends BaseApplication {
         LoadingAndRetryManager.BASE_LOADING_LAYOUT_ID = R.layout.base_loading;
         LoadingAndRetryManager.BASE_EMPTY_LAYOUT_ID = R.layout.base_empty;
 
+        WaterTextManager.BASE_WATER_LAYOUT_ID  = R.layout.base_waterview;//配置水印布局
+
+
         //第一：默认初始化
         Bmob.initialize(this, "75131b97d7fc4f67b1377af0fdb4e4be");
+
+        Album.initialize(AlbumConfig.newBuilder(this)
+                .setAlbumLoader(new MediaLoader())
+                .build());
+
+        RequestOptions requestOptions = new RequestOptions();
+
     }
 }

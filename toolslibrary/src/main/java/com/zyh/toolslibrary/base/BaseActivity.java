@@ -32,6 +32,7 @@ import butterknife.Unbinder;
 public abstract class BaseActivity extends AppCompatActivity {
 
     private Unbinder mUnbinder;
+    protected Context mContext;
     @SuppressWarnings("unchecked")
     public <T extends View> T findView(int id) {
         return (T) findViewById(id);
@@ -43,6 +44,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         AppManager.getAppManager().addActivity(this);
         setContentView(initContentViewResId());
         mUnbinder = ButterKnife.bind(this);
+        mContext = this;
         initView();
         initData();
     }

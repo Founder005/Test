@@ -45,4 +45,6 @@ dependencies {
     api 'com.yanzhenjie.nohttp:nohttp:1.1.4'
     //fastjson
     api 'com.alibaba:fastjson:1.1.57.android'
+
+    api 'com.yanzhenjie:album:2.1.3'
 }

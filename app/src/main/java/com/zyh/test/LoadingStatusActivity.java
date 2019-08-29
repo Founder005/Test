@@ -2,7 +2,10 @@ package com.zyh.test;
 
 import android.animation.AnimatorInflater;
 import android.animation.ObjectAnimator;
+import android.app.Activity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.RotateAnimation;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -62,13 +65,13 @@ public class LoadingStatusActivity extends BaseActivity {
                 double v = Math.random();
                 if (v > 0.8)
                 {
-                    mLoadingAndRetryManager.showContent();
+                    mLoadingAndRetryManager.showRetry();
                 } else if (v > 0.4)
                 {
                     mLoadingAndRetryManager.showRetry();
                 } else
                 {
-                    mLoadingAndRetryManager.showEmpty();
+                    mLoadingAndRetryManager.showRetry();
                 }
             }
         }.start();
@@ -92,5 +95,25 @@ public class LoadingStatusActivity extends BaseActivity {
                 loadData();
             }
         });
+    }
+
+    private boolean isAdd ;
+    @Override
+    protected void onStart() {
+        //判断是否已经添加过
+        if(isAdd){
+        }else {
+            ViewGroup rootView = getRootView(this);
+            View framView = LayoutInflater.from(this).inflate(R.layout.base_waterview, null);
+            rootView.addView(framView);
+            isAdd=true;
+        }
+        super.onStart();
+
+    }
+    //查找布局的底层
+    protected static ViewGroup getRootView(Activity context)
+    {
+        return (ViewGroup)context.findViewById(android.R.id.content);
     }
 }

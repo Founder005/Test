@@ -1,5 +1,7 @@
 package com.zyh.toolslibrary.base;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,7 +15,17 @@ import android.view.ViewGroup;
  * 类描述：
  */
 public abstract class BaseFragment extends Fragment {
-
+    protected Activity mActivity;
+    /**
+     * 获得全局的，防止使用getActivity()为空
+     *
+     * @param context
+     */
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        this.mActivity = (Activity) context;
+    }
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
