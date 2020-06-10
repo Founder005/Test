@@ -8,6 +8,7 @@ import android.media.ThumbnailUtils;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.BottomSheetDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -21,9 +22,14 @@ import com.xuexiang.xui.widget.toast.XToast;
 import com.yanzhenjie.album.Action;
 import com.yanzhenjie.album.Album;
 import com.yanzhenjie.album.AlbumFile;
+import com.yanzhenjie.nohttp.Logger;
+import com.zyh.test.view.BottomListDialog;
+import com.zyh.test.view.FloatButton;
+import com.zyh.test.view.FreeView;
 import com.zyh.test.view.WaterMarkBg;
 import com.zyh.test.view.WaterTextManager;
 import com.zyh.toolslibrary.nohttp.LoadingDialog;
+import com.zyh.toolslibrary.util.DisplayUtils;
 import com.zyh.toolslibrary.util.SPUtils;
 
 import java.util.ArrayList;
@@ -62,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         faceIv = findViewById(R.id.iv_face);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         final LoadingDialog dialog = new LoadingDialog(MainActivity.this);
+        //boom云
 //        mTextMessage.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -112,34 +119,58 @@ public class MainActivity extends AppCompatActivity {
                 }).start();
             }
         });
+        findViewById(R.id.tv_bottom_sheet).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, BottomSheetActivity.class));
+
+//                BottomListDialog fullSheetDialogFragment = new BottomListDialog();
+//                fullSheetDialogFragment.show(getSupportFragmentManager(),"FullSheetDialogFragment");
+            }
+        });
+        findViewById(R.id.tv_multi_state).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, StatusActivity.class));
+            }
+        });
 //        WaterTextManager.generate(this);//水印第一种
     }
 
-    private void saveFaceData(String path){
-        Bitmap bitmap1 = ThumbnailUtils.extractThumbnail( BitmapFactory.decodeFile(path), 100, 100);
+    private void saveFaceData(String path) {
+        Bitmap bitmap1 = ThumbnailUtils.extractThumbnail(BitmapFactory.decodeFile(path), 100, 100);
         String s1 = SimilarPicture.binaryString2hexString(SimilarPicture.getBinary(bitmap1, SimilarPicture.getAvg(SimilarPicture.convertGreyImg(bitmap1))));
-        SPUtils.getInstance().put("faceData",s1);
+        SPUtils.getInstance().put("faceData", s1);
     }
+
     /*水印第二种*/
-    private boolean isAdd ;
+    private boolean isAdd;
+
     @Override
     protected void onStart() {
         //判断是否已经添加过
-        if(isAdd){
-        }else {
+        if (isAdd) {
+        } else {
             ViewGroup rootView = getRootView(this);
             View framView = LayoutInflater.from(this).inflate(R.layout.view_waterview, null);
-            WaterMarkBg markBg = new WaterMarkBg(this,"HELLO",false);
+            WaterMarkBg markBg = new WaterMarkBg(this, "HELLO", false);
             framView.setBackground(markBg);
             rootView.addView(framView);
-            isAdd=true;
+
+//            FloatButton floatButton = new FloatButton(this);
+//
+//            FreeView freeView = new FreeView(this);
+//            freeView.setLayoutParams(new ViewGroup.LayoutParams(DisplayUtils.dip2px(this,50),DisplayUtils.dip2px(this,50)));
+//            rootView.addView(floatButton);
+            isAdd = true;
         }
         super.onStart();
 
     }
+
     //查找布局的底层
-    protected static ViewGroup getRootView(Activity context)
-    {
-        return (ViewGroup)context.findViewById(android.R.id.content);
+    protected static ViewGroup getRootView(Activity context) {
+        Logger.d("RootView======" + android.R.id.content);
+        return (ViewGroup) context.findViewById(android.R.id.content);
     }
 }

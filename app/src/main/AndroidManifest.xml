@@ -67,6 +67,9 @@
                 android:resource="@xml/file_paths" />
         </provider>
         <activity android:name=".FaceActivity"/>
+        <activity android:name=".BottomSheetActivity"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".StatusActivity"/>
     </application>
 
 </manifest>

@@ -13,7 +13,7 @@ import butterknife.ButterKnife;
 /**
  * @author ZhangYuhang
  * @date 2019/8/8
- * @updatelog
+ * @updatelog 共享元素动画
  */
 public class BigImageActivity extends BaseActivity {
     @BindView(R.id.iv_big)

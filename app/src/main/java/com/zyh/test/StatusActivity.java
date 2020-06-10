@@ -19,7 +19,7 @@ import butterknife.BindView;
 
 /**
  * Created by Administrator on 2019/7/18.
- * 类描述：
+ * 类描述：多状态布局，xui里的MultipleStatusView
  */
 public class StatusActivity extends BaseActivity {
 
